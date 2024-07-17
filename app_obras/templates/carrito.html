@@ -1,0 +1,79 @@
+{% load humanize %}
+
+<div role="alert">
+    <table class="table table-bordered table-striped alert alert-light">
+        <thead class="thead-light">
+            <tr class="text-center">
+                <th colspan="3" style="font-weight:bold; font-size:18px">CARRITO</th>
+            </tr>
+            <tr>
+                <th style="font-size:15px; font-weight: bold; color:black; text-align: center;">NOMBRE</th>
+                <th style="font-size:15px; font-weight: bold; color:black; text-align: center;">PRECIO</th>
+                <th style="font-size:15px; font-weight: bold; color:black; text-align: center;">CANTIDAD</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if carrito %}
+                {% for key, value in carrito.items %} 
+                    <tr>
+                        <td style="font-size:13px">{{ value.nombre }}</td>
+                        <td style="font-size:13px">$ {{ value.precio }}</td>
+                        <td style="font-size:13px">
+                            {{ value.cantidad }}
+                            <br>
+                            <a href="{% url 'agregar' key %}" class="badge btn btn-success">+</a>
+                            <a href="{% url 'restar' key %}" class="badge btn btn-danger">-</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th colspan="2" style="text-align:right;">Total General:</th>
+                    <td style="font-size:13px">$ {{ total_general|intcomma }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">
+                        <div class="alert alert-info text-center" style="font-weight: bold;">Sin Productos</div>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <hr>
+</div>
+
+<div class="row text-center">
+    
+        {% if carrito %}
+            <div class="row-6">
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Limpiar</button>
+            </div>
+            
+            <div class="row-6">
+      
+                <form action="{% url 'procesar_pago' %}" method="GET">
+                    <input type="submit" class="btn btn-primary" value="Procesar Pago">
+                </form>
+
+            </div>
+        {% endif %}
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">BORRAR DATOS DEL CARRITO</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Estas a punto de eliminar todo el contenido del carrito seguro que quieres continuar?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                  <a class="btn btn-danger" href="{% url 'limpiar' %} " >Limpiar Carrito</a>
+                </div>
+              </div>
+            </div>
+        </div>
+
+</div>

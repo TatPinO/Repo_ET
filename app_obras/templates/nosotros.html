@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sobre Nosotros - ChalaStore</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icono.png' %}" rel="icon">
+  
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+<script>
+  function showLogoutMessage(event) {
+      event.preventDefault();
+      var message = "¡Has cerrado la sesión exitosamente!";
+      alert(message);
+      window.location.href = event.currentTarget.href;
+  }
+</script>
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent header-scrolled">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div id="logo">
+        <h1><a href="/">ChalaStore</a></h1>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto active" href="nosotros.html">Nosotros</a></li>
+          <li><a class="nav-link scrollto" href="galeria.html">Galería</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">Ubicación</a></li> 
+          <li><a class="nav-link scrollto" href="mostrar.html">Productos</a></li>    
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="administracion.html">Administración</a></li>     
+          {% endif %}  
+          {% if user.is_authenticated %}
+          <li><a class="nav-link scrollto" href="/admin/logout/" onclick="showLogoutMessage(event)">Cerrar Sesión</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+   
+    <!-- ======= Breadcrumbs Section ======= -->
+
+    <section id="about" class="breadcrumbs">
+      <br>
+        <h1 id="nosotros" class="text-center">
+        <strong>Nosotros</strong> 
+        </h1>
+        <br>
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+          <div class="row about-container">           
+            <div class="">
+
+              <main class="container my-5">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img src="{% static 'assets/img/icono.png' %}" class="img-fluid rounded" alt="Imagen a la izquierda">
+                    </div>
+            
+                    <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 mb-4">Acerca de ChalaStore</h1>
+                    <p class="lead">ChalaStore es una tienda en línea comprometida a ofrecer lo mejor en moda y accesorios a precios accesibles.</p>
+                    <p>Desde nuestra fundación, nos hemos dedicado a proporcionar productos de alta calidad que reflejen las últimas tendencias de moda. Nuestro objetivo es brindar una experiencia de compra satisfactoria a nuestros clientes, ofreciendo una amplia selección de productos y un servicio excepcional.</p>
+                    <p>En ChalaStore, creemos en la importancia de la moda como una forma de expresión personal. Nos esforzamos por ofrecer una variedad de estilos y opciones para adaptarnos a los gustos y necesidades de cada individuo.</p>
+                    <p>Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con nosotros. ¡Estamos aquí para ayudarte!</p>
+                    </div>
+                    
+                </div>
+            
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 mb-4">Fundadores</h1>
+                    <p class="lead">Los fundadores de ChalaStore magos antiguos ya muertos hace eones.</p>
+                    <p>Hace eones, en una época envuelta en misterio y magia, un grupo de antiguos magos se unió con un propósito singular: crear una tienda que desafiara las convenciones de la moda. Estos magos, conocidos por su sabiduría y poder, buscaban algo más que la simple confección de ropa; querían infundir cada prenda con un toque de magia y autenticidad.</p>
+                    <p>Así nació ChalaStore, un lugar donde lo común se transforma en extraordinario. Aunque los fundadores ya no caminan entre nosotros, su legado perdura en cada hilo y cada diseño. Cada prenda de ChalaStore lleva la esencia de aquellos magos, ofreciendo un estilo alternativo y rebelde que desafía las normas y celebra la individualidad.</p>
+                    <p>En ChalaStore, no solo vestimos cuerpos, sino también almas. Aquí, la moda es más que una tendencia; es una declaración de identidad y una celebración de la originalidad. Bienvenidos a ChalaStore, donde la magia y el estilo se entrelazan eternamente.</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <img src="{% static 'assets/img/icono.png' %}" class="img-fluid rounded" alt="Imagen a la derecha">
+                    </div>
+                </div> 
+            </div>
+            <div class="col-lg-6 order-lg-1 order-1">
+
+            </div>
+              
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+      <br>
+      <br>
+      <br>
+
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page pt-4">
+      <div class="container">
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    
+    <div class="footer-top">
+      <div class="container">
+
+      </div>
+    </div>
+
+
+
+    <div class="container">
+
+      
+      <div class="info d-flex flex-row justify-content-between">
+        <div class="mr-3">
+          <i class="bi bi-geo-alt"></i>
+          <p>Rio Mapocho</p>
+        </div>
+      
+        <div class="mr-3">
+          <i class="bi bi-envelope"></i>
+          <p>ChalaStore@ejemplo.com</p>
+        </div>
+      
+        <div>
+          <i class="bi bi-phone"></i>
+          <p>+56 9 3235 8743</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+        © Copyright <strong>ChalaStore</strong>. Todos los derechos reservados.
+      </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    
+      <!-- Vendor JS Files -->
+      <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+      <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+      <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+      <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+      
+      <!-- Template Main JS File -->
+      <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+    </html>
